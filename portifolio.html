@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderson Diniz - Portfólio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #30A3DC;
+            --secondary-color: #E94D5F;
+            --dark-color: #000;
+            --light-color: #FFF;
+            --gray-color: #f5f5f5;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark-color), #1a1a1a);
+            color: var(--light-color);
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--gray-color);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-3px);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .stats-container img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 100%;
+        }
+
+        .specialties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .specialty {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .specialty:hover {
+            transform: translateY(-5px);
+        }
+
+        .specialty h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .portfolio-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1e8fc0;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: bold;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .contact-link i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .skills-container, .specialties, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="imagens/Post do Instagram JLM (11).png" alt="Wanderson Diniz" class="profile-pic">
+            <h1>Wanderson Diniz</h1>
+            <p class="subtitle">Analista de Negócios | Desenvolvedor Back-End em Transição</p>
+            <div class="badge-container">
+                <span class="badge" style="background-color: #E34F26;">HTML5</span>
+                <span class="badge" style="background-color: #1572B6;">CSS3</span>
+                <span class="badge" style="background-color: #CC6699;">Sass</span>
+                <span class="badge" style="background-color: #F7DF1E; color: black;">JavaScript</span>
+                <span class="badge" style="background-color: #007ACC;">TypeScript</span>
+                <span class="badge" style="background-color: #20232A;">React</span>
+                <span class="badge" style="background-color: #6E43FF;">Bootstrap</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                Atualmente atuo como <strong>Analista de Negócios</strong>, com foco na identificação e solução de problemas por meio da tecnologia. 
+                Estou em <strong>transição de carreira para o desenvolvimento back-end com Node.js</strong>, unindo minha experiência em processos a habilidades técnicas crescentes.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Tecnologias & Ferramentas</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Front-End</h3>
+                    <div class="badge-container">
+                        <span class="badge" style="background-color: #E34F26;">HTML5</span>
+                        <span class="badge" style="background-color: #1572B6;">CSS3</span>
+                        <span class="badge" style="background-color: #CC6699;">Sass</span>
+                        <span class="badge" style="background-color: #F7DF1E; color: black;">JavaScript</span>
+                        <span class="badge" style="background-color: #007ACC;">TypeScript</span>
+                        <span class="badge" style="background-color: #20232A;">React</span>
+                        <span class="badge" style="background-color: #6E43FF;">Bootstrap</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Ferramentas e Versionamento</h3>
+                    <div class="badge-container">
+                        <span class="badge" style="background-color: #E44C30;">Git</span>
+                        <span class="badge" style="background-color: #F24E1E;">Figma</span>
+                        <span class="badge" style="background-color: #007ACC;">VSCode</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Banco de Dados</h3>
+                    <div class="badge-container">
+                        <span class="badge" style="background-color: #4479A1;">SQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats">
+        <div class="container">
+            <h2>GitHub Stats</h2>
+            <div class="stats-container">
+                <img src="https://github-readme-stats.vercel.app/api?username=WandersonDiniz15&theme=transparent&bg_color=000&border_color=30A3DC&show_icons=true&icon_color=30A3DC&title_color=E94D5F&text_color=FFF" alt="GitHub Stats">
+            </div>
+        </div>
+    </section>
+
+    <section id="specialties">
+        <div class="container">
+            <h2>Especialidades</h2>
+            <div class="specialties">
+                <div class="specialty">
+                    <h3>RM TOTVS</h3>
+                    <p>Administração e análise de banco de dados</p>
+                </div>
+                <div class="specialty">
+                    <h3>Análise de Negócios</h3>
+                    <p>Levantamento de requisitos e solução de problemas</p>
+                </div>
+                <div class="specialty">
+                    <h3>Desenvolvimento Back-End</h3>
+                    <p>Desenvolvimento de APIs com Node.js</p>
+                </div>
+                <div class="specialty">
+                    <h3>Integração de Sistemas</h3>
+                    <p>Conexão entre diferentes plataformas e serviços</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>Trabalhos Realizados</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="imagens/ChatGPT Image 1 de ago. de 2025, 14_26_14.png" alt="JLM Solution">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>JLM Solution</h3>
+                        <p>Site institucional para empresa de tecnologia e soluções empresariais.</p>
+                        <a href="https://jlmsolution.com.br/" target="_blank" class="btn">Visitar Site</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="imagens/intranet iadvh.png" alt="Intranet IADVH">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Intranet IADVH</h3>
+                        <p>Plataforma interna para gestão de processos e comunicação organizacional.</p>
+                        <a href="http://intranet.iadvh.org.br" target="_blank" class="btn">Visitar Site</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="imagens/Vacinação.png" alt="Vacina IADVH">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Sistema de Vacinação</h3>
+                        <p>Plataforma para agendamento e gestão de campanhas de vacinação.</p>
+                        <a href="https://iadvh.org.br/vacina/" target="_blank" class="btn">Visitar Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contato</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Entre em contato comigo para oportunidades de trabalho ou colaborações.</p>
+            
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/wanderson-diniz-366247191/" target="_blank" class="contact-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:wandersondiniz15@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> wandersondiniz15@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Wanderson Diniz. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
